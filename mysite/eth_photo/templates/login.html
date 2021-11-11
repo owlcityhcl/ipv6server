@@ -1,0 +1,27 @@
+<form method = 'post' action = '../login/'>
+    {% csrf_token %}
+    First name:<br>
+    <input type="text" name='username' value="1">
+    <br>
+    Last name:<br>
+    <input type="password" name='password' value="1">
+    <br><br>
+    <input type="submit" value="Submit"> 
+ </form>  
+ <form method = 'post' action = '../search/'>
+    {% csrf_token %}
+    First name:<br>
+    <input type="text" name='search_id' value="123456789012345678">
+    <br>
+    Last name:<br>
+    <input type="text" name='save_data' value="123123123123123">
+    <br><br>
+    <input type="submit" value="Submit"> 
+ </form>  
+ <form method = 'post' action = '../img_request/'>
+    {% csrf_token %}
+    First name:<br>
+    <input type="text" name='img_name' value="1">
+    <br>
+    <input type="submit" value="Submit"> 
+ </form>  

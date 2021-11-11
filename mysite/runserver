@@ -1,0 +1,11 @@
+1.mysql -u root -p
+
+2.create database medical_test;
+
+3.python3 manage.py migrate
+
+4.python3 manage.py runserver [::]:25252
+
+5.http://0.0.0.0:25252/admin/login/  #add account
+
+6 . python manage.py createsuperuser

@@ -1,0 +1,387 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, height=device-height">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Welcome emocleW</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/demo.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}">
+
+	<style type="text/css">
+		.result_list_head{
+			border-top: 2px solid white;
+			border-bottom: 2px solid white;
+			line-height: 40px;
+		}
+		.result_list_content{
+			border-bottom: 2px solid white;
+			line-height: 37px;
+		}
+	</style>
+
+  </head>
+  <body>
+
+  	<link rel="stylesheet prefetch" href="{% static 'photoswipe.css' %}">
+	<link rel="stylesheet prefetch" href="{% static 'default-skin/default-skin.css' %}">
+	<script src="{% static 'photoswipe.js' %}"></script>
+	<script src="{% static 'photoswipe-ui-default.min.js' %}"></script>
+    
+	
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+
+                <div class="pswp__top-bar">
+
+                    <div class="pswp__counter"></div>
+
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+              </button>
+
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+              </button>
+
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="large-header" class="large-header">
+	<canvas id="demo-canvas"></canvas>
+	<div class="container-fluid logo_box">
+		<div class="row">
+			<div class="col-md-12">&nbsp;</div>
+			<div class="col-md-12">&nbsp;</div>
+			<div class="col-md-12">
+				<h3 class="text-info" style="">
+					基于区块链的医疗图像共享系统
+				</h3>
+			</div>
+			<div class="col-md-12">&nbsp;</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="tabbable" id="tabs-797519">
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a class="nav-link active show text-muted" href="#panel-819978" data-toggle="tab">搜索图片</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-muted" href="#panel-348613" data-toggle="tab">上传图片</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-muted" href="#panel-652359" data-toggle="tab">操作记录</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active show" id="panel-819978">
+							<div class="col-md-12">&nbsp;</div>
+							<div class="col-md-12">
+								<form role="form" action="javascript:search()" class="form-inline">
+									<div class="form-group col-md-2"></div>
+									<div class="form-group col-md-7">
+										<input class="form-control" style="width: 100%" id="search_id" name="search_id" type="text">
+									</div>
+									<div class="form-group col-md-1">
+										<button type="submit" class="btn btn-primary">
+										搜索
+										</button>
+									</div>
+									<div class="form-group col-md-2"></div>
+								</form>
+							</div>
+							<div class="col-md-12">&nbsp;</div>
+							<div class="col-md-12">&nbsp;</div>
+							<div class="col-md-12 result_list_head form-inline">
+								<div class="form-group col-md-6" style="font-weight: bold;">图片名</div>
+								<div class="form-group col-md-2" style="font-weight: bold;">图片类型</div>
+								<div class="form-group col-md-4" style="font-weight: bold;">上传时间</div>
+							</div>
+							<div class="result_list col-md-12 form-inline" id="result_list">
+							</div>
+						</div>
+						<div class="tab-pane" id="panel-348613">
+							<p><!-- -->
+								<form role="form" class="upload_form" method="post" action="" enctype="multipart/form-data">
+									<div class="form-group">
+										 
+										<label for="identity_card_number">
+										身份证号码
+										</label>
+										<input class="form-control" id="identity_card_number" name="id_card" type="text">
+									</div>
+									<div class="form-group">
+										 
+										<label for="patient_name">
+										患者名字
+										</label>
+										<input class="form-control" id="patient_name" name="own_name" type="text">
+									</div>
+									<div class="form-group">
+										 
+										<label for="patient_name">
+										图片类别
+										</label>
+										<select class="form-control" name="pic_type" >
+										<option value="0">X光图</option>
+										<option value="1">CT图</option>
+										<option value="2">普通图片</option>
+										</select>
+									</div>
+									<div class="form-group">
+										 
+										    <div class="file-container" style="display:inline-block;position:relative;overflow: hidden;vertical-align:middle">
+										<button class="btn btn-success fileinput-button" type="button">选择文件</button>
+										<input type="file" name="image" id="jobData" onchange="loadFile(this.files[0])" style="position:absolute;top:0;left:0;font-size:34px; opacity:0">
+										    </div>
+										    <span id="filename" style="vertical-align: middle">请选择文件</span>
+									</div>
+									<button type="submit" class="btn btn-primary">
+										上传
+									</button>
+								</form>
+							</p>
+						</div>
+						<div class="tab-pane" id="panel-652359">
+							<div class="col-md-12">&nbsp;</div>
+							<div class="col-md-12">
+								<div role="form" action="" class="form-inline">
+									<div class="form-group col-md-4"></div>
+									<div class="form-group col-md-1">
+										<button type="submit" class="btn btn-primary" onclick="javascript:change_page(-1)">
+										前一页
+										</button>
+									</div>
+									<div class="form-group col-md-1">
+										<button type="submit" class="btn btn-primary" onclick="javascript:change_page(0)">
+										刷新
+										</button>
+									</div>
+									<div class="form-group col-md-1">
+										<button type="submit" class="btn btn-primary" onclick="javascript:change_page(1)">
+										后一页
+										</button>
+									</div>
+									<div class="form-group col-md-4"></div>
+								</div>
+							</div>
+							<div class="col-md-12">&nbsp;</div>
+							<div class="col-md-12">&nbsp;</div>
+							<div class="col-md-12 result_list_head form-inline">
+								<div class="form-group col-md-2" style="font-weight: bold;">操作时间</div>
+								<div class="form-group col-md-1" style="font-weight: bold;">操作类型</div>
+								<div class="form-group col-md-4" style="font-weight: bold;">操作帐号</div>
+								<div class="form-group col-md-5" style="font-weight: bold;">操作图片</div>
+							</div>
+							<div class="result_list col-md-12" id="operator_list">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+			</div>
+		</div>
+	</div>
+	</div>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+	<script src="{% static 'js/TweenLite.min.js' %}"></script>
+	<script src="{% static 'js/EasePack.min.js' %}"></script>
+	<script src="{% static 'js/rAF.js' %}"></script>
+	<script src="{% static 'js/demo-1.js' %}"></script>
+    <script type="text/javascript">
+    	present_page_number = 0;
+    	next_pre_page = -1;
+    	locknock = 0;
+    	function StringFormat() {
+	        if (arguments.length == 0)
+	            return null;
+	        var str = arguments[0];
+	        for (var i = 1; i < arguments.length; i++) {
+	            var re = new RegExp('\\{' + (i - 1) + '\\}', 'gm');
+	            str = str.replace(re, arguments[i]);
+	        }
+	        return str;
+		}
+    	var alr="{{ upload_success }}";
+    	if (alr!=""){
+    		alert(alr)
+    	}
+    	function loadFile(file){
+    		
+		    $("#filename").html(file.name);
+		}
+		function search(){
+			var patient_id_val = $('#search_id')[0].value;
+			$.post("/webSearch/", { search_id: patient_id_val }, function(data, b){
+				if (data){
+					// console.log (data);
+					// console.log (b);
+					
+			        // do sth.
+			        fill_in_html($.parseJSON(data));
+				}
+				else{
+					alert("No patient with id like this.");
+				}
+				
+		    });
+		}
+		function change_page(ty_in){
+			if (present_page_number != 0 && present_page_number + ty_in <= 0){
+				alert('已经是第一页');
+				return;
+			}
+			if (next_pre_page != -1){
+				alert('请等待操作执行');
+				return;
+			}
+			if (ty_in == 0){
+				next_pre_page = 0;
+			}
+			else if (present_page_number == 0){
+				alert('请先刷新');
+				return;
+			}
+			else{
+				next_pre_page = present_page_number + ty_in;
+			}
+			$.post("/Latin_operatio_record/", { page_type: next_pre_page }, function(data, b){
+				if (data){
+					append_operator($.parseJSON(data));
+				}
+				else{
+					next_pre_page = -1;
+				}
+			}).fail(function(){
+				alert('error');
+				next_pre_page = -1;
+			});
+		}
+		function append_operator(data_list){
+			var body_list = $('#operator_list');
+			body_list.empty();
+			template = '<div class="col-md-12 result_list_content form-inline"><div class="form-group col-md-2" style="font-weight: bold;">{0}</div><div class="form-group col-md-1" style="font-weight: bold;">{1}</div><div class="form-group col-md-4" style="font-weight: bold;">{2}</div><div class="form-group col-md-5" style="font-weight: bold;">{3}</div></div>';
+			if (data_list == "" || data_list.length == 0){
+				alert('无更多数据');
+				present_page_number = next_pre_page;
+				next_pre_page = -1;
+				return;
+			}
+			var json_length = data_list.length;
+			for (var i = 0; i < json_length; i++){
+				fill_html = StringFormat(template, data_list[i].data_time, data_list[i].data_type, data_list[i].data_account, data_list[i].data_picname);
+				body_list.append(fill_html);
+			}
+			present_page_number = next_pre_page;
+			next_pre_page = -1;
+		}
+		function fill_in_html(get_input){
+			var body_cont = $('#result_list');
+			body_cont.empty();
+			var json_length = get_input.length;
+			for (var i = 0; i < json_length; i++){
+				fill_html = '<div class="col-md-12 result_list_content form-inline" onclick="show_pic(\''+get_input[i].file_name + "\', \'" + get_input[i].file_loc+'\')"><div class="form-group col-md-6" style="font-weight: bold;">' + get_input[i].file_name + '</div><div class="form-group col-md-2" style="font-weight: bold;">' + get_input[i].file_type + '</div><div class="form-group col-md-4" style="font-weight: bold;">' + get_input[i].file_date + '</div></div>';
+				body_cont.append(fill_html);
+				// console.log(fill_html)
+			}
+		}
+
+        function show_pic (img_name,IP) {
+        	//alert('@'+img_url);
+        	if (locknock == 1){
+        		return;
+        	}
+        	locknock = 1;
+        	$.post("/img_request/", { "img_name": img_name,"file_loc":IP}, function(data, b){
+				if (data){
+					var imgs = new Image();
+					var width = 1024;
+					var height = 1024;
+					imgs.src = data.url;
+					width = imgs.width;
+					height = imgs.height;
+					var pswpElement = document.querySelectorAll('.pswp')[0];
+		            var items = [{
+		                src: data.url,
+		                w: width,
+		                h: height
+		            }, 
+
+		            ];
+
+		            // define options (if needed)
+		            var options = {
+		                // optionName: 'option value'
+		                // for example:
+		                index: 0 // start at first slide
+		            };
+
+		            // Initializes and opens PhotoSwipe
+		            var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+		            //gallery.listen('close', function() {window.location.href="http://baidu.com";});
+		            gallery.init();
+		            locknock = 0;
+				}
+				else{
+					alert("No patient with id like this.");
+		            locknock = 0;
+				}
+				
+		    });
+            
+        }
+
+    </script>
+
+  </body>
+</html>

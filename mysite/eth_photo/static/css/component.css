@@ -1,0 +1,29 @@
+/* Header */
+.large-header {
+	position: relative;
+	width: 100%;
+	background: #333;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	z-index: 1;
+}
+
+.demo-1 .large-header {
+	background-image: url('../img/demo-1-bg.jpg');
+}
+.logo_box{
+	color: #EEE;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+.logo_box h3{
+	font: "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;
+	color: #FFFFFF;
+}
+.upload_form{
+	width: 30%;
+	margin: auto auto auto;
+}
